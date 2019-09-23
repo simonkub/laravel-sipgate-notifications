@@ -1,12 +1,12 @@
 # Laravel Notifications for sipgate [WIP]
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/laravel-sipgate-notification.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/laravel-sipgate-notification)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/simonkub/laravel-sipgate-notification.svg?style=flat-square)](https://packagist.org/packages/simonkub/laravel-sipgate-notification)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/laravel-notification-channels/laravel-sipgate-notification/master.svg?style=flat-square)](https://travis-ci.org/laravel-notification-channels/laravel-sipgate-notification)
+[![Build Status](https://img.shields.io/travis/simonkub/laravel-sipgate-notification/master.svg?style=flat-square)](https://travis-ci.org/simonkub/laravel-sipgate-notification)
 [![StyleCI](https://styleci.io/repos/210414919/shield)](https://styleci.io/repos/210414919)
-[![Quality Score](https://img.shields.io/scrutinizer/g/laravel-notification-channels/laravel-sipgate-notification.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/laravel-sipgate-notification)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/laravel-sipgate-notification/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/laravel-sipgate-notification/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/laravel-sipgate-notification.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/laravel-sipgate-notification)
+[![Quality Score](https://img.shields.io/scrutinizer/g/simonkub/laravel-sipgate-notification.svg?style=flat-square)](https://scrutinizer-ci.com/g/simonkub/laravel-sipgate-notification)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/simonkub/laravel-sipgate-notification/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/simonkub/laravel-sipgate-notification/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/simonkub/laravel-sipgate-notification.svg?style=flat-square)](https://packagist.org/packages/simonkub/laravel-sipgate-notification)
 
 This package makes it easy to send notifications using [sipgate](https://sipgate.de) with Laravel 5.5+ and 6.0
 
