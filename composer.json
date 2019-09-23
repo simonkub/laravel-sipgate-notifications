@@ -1,7 +1,7 @@
 {
     "name": "laravel-notification-channels/laravel-sipgate-notification",
     "description": "Laravel notifications driver for sipgate.de",
-    "homepage": "https://github.com/laravel-notification-channels/laravel-sipgate-notification",
+    "homepage": "https://github.com/simonkub/laravel-sipgate-notification",
     "license": "MIT",
     "authors": [
         {
