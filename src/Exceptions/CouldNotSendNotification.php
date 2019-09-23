@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\Sipgate\Exceptions;
+namespace SimonKub\Laravel\Notifications\Sipgate\Exceptions;
 
 class CouldNotSendNotification extends \Exception
 {
