@@ -2,8 +2,8 @@
 
 namespace NotificationChannels\Sipgate;
 
-use NotificationChannels\Sipgate\Exceptions\CouldNotSendNotification;
 use Illuminate\Notifications\Notification;
+use NotificationChannels\Sipgate\Exceptions\CouldNotSendNotification;
 
 class SipgateChannel
 {
