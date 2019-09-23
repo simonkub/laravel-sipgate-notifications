@@ -13,7 +13,7 @@ class SipgateServiceProvider extends ServiceProvider
     {
         // Bootstrap code here.
 
-        /**
+        /*
          * Here's some example code we use for the pusher package.
 
         $this->app->when(Channel::class)
@@ -28,7 +28,6 @@ class SipgateServiceProvider extends ServiceProvider
                 );
             });
          */
-
     }
 
     /**
