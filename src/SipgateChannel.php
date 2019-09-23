@@ -1,9 +1,8 @@
 <?php
 
-namespace NotificationChannels\Sipgate;
+namespace SimonKub\Laravel\Notifications\Sipgate;
 
 use Illuminate\Notifications\Notification;
-use NotificationChannels\Sipgate\Exceptions\CouldNotSendNotification;
 
 class SipgateChannel
 {
@@ -18,7 +17,7 @@ class SipgateChannel
      * @param mixed $notifiable
      * @param \Illuminate\Notifications\Notification $notification
      *
-     * @throws \NotificationChannels\Sipgate\Exceptions\CouldNotSendNotification
+     * @throws \SimonKub\Laravel\Notifications\Sipgate\Exceptions\CouldNotSendNotification
      */
     public function send($notifiable, Notification $notification)
     {

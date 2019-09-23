@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\Sipgate;
+namespace SimonKub\Laravel\Notifications\Sipgate;
 
 use Illuminate\Support\ServiceProvider;
 
