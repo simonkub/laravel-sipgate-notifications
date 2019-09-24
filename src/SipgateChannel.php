@@ -6,9 +6,14 @@ use Illuminate\Notifications\Notification;
 
 class SipgateChannel
 {
-    public function __construct()
+    /**
+     * @var SipgateClient
+     */
+    protected $client;
+
+    public function __construct(SipgateClient $client)
     {
-        // Initialisation code here
+        $this->client = $client;
     }
 
     /**
@@ -21,10 +26,10 @@ class SipgateChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        //$response = [a call to the api of your notification send]
+        /** @var SipgateMessage $message */
+        $message = $notification->toSipgate($notifiable);
+        $message->setRecipient($notifiable->phone_number)->setSmsId('s9');
 
-//        if ($response->error) { // replace this by the code need to check for errors
-//            throw CouldNotSendNotification::serviceRespondedWithAnError($response);
-//        }
+        $this->client->send($message);
     }
 }
