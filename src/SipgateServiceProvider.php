@@ -2,6 +2,7 @@
 
 namespace SimonKub\Laravel\Notifications\Sipgate;
 
+use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 
 class SipgateServiceProvider extends ServiceProvider
@@ -11,23 +12,21 @@ class SipgateServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Bootstrap code here.
-
-        /*
-         * Here's some example code we use for the pusher package.
-
-        $this->app->when(Channel::class)
-            ->needs(Pusher::class)
-            ->give(function () {
-                $pusherConfig = config('broadcasting.connections.pusher');
-
-                return new Pusher(
-                    $pusherConfig['key'],
-                    $pusherConfig['secret'],
-                    $pusherConfig['app_id']
-                );
-            });
-         */
+        $this->app->bind(SipgateClient::class, function () {
+            return new SipgateClient(
+                new Client([
+                    'base_uri' => 'https://api.sipgate.com/v2/',
+                    'auth' => [
+                        $this->app['config']['services.sipgate.username'],
+                        $this->app['config']['services.sipgate.password'],
+                    ],
+                    'headers' => [
+                        "Accept" => "application/json",
+                        "Content-Type" => "application/json"
+                    ]
+                ])
+            );
+        });
     }
 
     /**
@@ -35,5 +34,6 @@ class SipgateServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        //
     }
 }
