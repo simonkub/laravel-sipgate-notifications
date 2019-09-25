@@ -108,10 +108,10 @@ class SipgateMessage implements Arrayable
     public function toArray()
     {
         return [
-            "message" => $this->message,
-            "recipient" => $this->recipient,
-            "smsId" => $this->smsId,
-            "sendAt" => $this->sendAt
+            'message' => $this->message,
+            'recipient' => $this->recipient,
+            'smsId' => $this->smsId,
+            'sendAt' => $this->sendAt,
         ];
     }
 }

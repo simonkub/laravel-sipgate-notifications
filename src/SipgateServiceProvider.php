@@ -3,8 +3,8 @@
 namespace SimonKub\Laravel\Notifications\Sipgate;
 
 use GuzzleHttp\Client;
-use Illuminate\Notifications\ChannelManager;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Notifications\ChannelManager;
 
 class SipgateServiceProvider extends ServiceProvider
 {
@@ -28,9 +28,9 @@ class SipgateServiceProvider extends ServiceProvider
                         $this->app['config']['services.sipgate.password'],
                     ],
                     'headers' => [
-                        "Accept" => "application/json",
-                        "Content-Type" => "application/json"
-                    ]
+                        'Accept' => 'application/json',
+                        'Content-Type' => 'application/json',
+                    ],
                 ])
             );
         });
