@@ -3,6 +3,7 @@
 namespace SimonKub\Laravel\Notifications\Sipgate;
 
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Config;
 use SimonKub\Laravel\Notifications\Sipgate\Exceptions\CouldNotSendNotification;
 
 class SipgateChannel
@@ -67,7 +68,7 @@ class SipgateChannel
             return;
         }
 
-        if ($smsId = config('services.sipgate.smsId')) {
+        if ($smsId = Config::get('services.sipgate.smsId')) {
             $message->smsId($smsId);
 
             return;
