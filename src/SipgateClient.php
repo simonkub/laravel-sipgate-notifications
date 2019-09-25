@@ -2,8 +2,9 @@
 
 namespace SimonKub\Laravel\Notifications\Sipgate;
 
-use GuzzleHttp\Client as HttpClient;
-use Illuminate\Support\Facades\Log;
+use GuzzleHttp\ClientInterface as HttpClient;
+use GuzzleHttp\Exception\GuzzleException;
+use SimonKub\Laravel\Notifications\Sipgate\Exceptions\CouldNotSendNotification;
 
 class SipgateClient
 {
@@ -12,16 +13,25 @@ class SipgateClient
      */
     protected $http;
 
+    /**
+     * SipgateClient constructor.
+     * @param  HttpClient  $http
+     */
     public function __construct(HttpClient $http)
     {
         $this->http = $http;
     }
 
+    /**
+     * @param  SipgateMessage  $message
+     * @throws CouldNotSendNotification
+     */
     public function send(SipgateMessage $message)
     {
-        $response = $this->http->post('sessions/sms', ['json' => $message->toArray()]);
-
-        Log::debug($response->getBody());
-        Log::debug($response->getStatusCode());
+        try {
+            $this->http->post('sessions/sms', ['json' => $message->toArray()]);
+        } catch (GuzzleException $exception) {
+            throw CouldNotSendNotification::connectionFailed($exception);
+        }
     }
 }
