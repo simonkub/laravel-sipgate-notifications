@@ -1,6 +1,6 @@
 <?php
 
-namespace SimonKub\Laravel\Notifications\Sipgate\Exceptions;
+namespace Simonkub\Laravel\Notifications\Sipgate\Exceptions;
 
 use Exception;
 use Throwable;

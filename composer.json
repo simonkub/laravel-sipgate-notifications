@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SimonKub\\Laravel\\Notifications\\Sipgate\\": "src"
+            "Simonkub\\Laravel\\Notifications\\Sipgate\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SimonKub\\Laravel\\Notifications\\Sipgate\\Test\\": "tests"
+            "Simonkub\\Laravel\\Notifications\\Sipgate\\Test\\": "tests"
         }
     },
     "scripts": {
@@ -40,7 +40,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SimonKub\\Laravel\\Notifications\\Sipgate\\SipgateServiceProvider"
+                "Simonkub\\Laravel\\Notifications\\Sipgate\\SipgateServiceProvider"
             ]
         }
     }

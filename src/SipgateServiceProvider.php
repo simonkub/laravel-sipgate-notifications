@@ -1,10 +1,10 @@
 <?php
 
-namespace SimonKub\Laravel\Notifications\Sipgate;
+namespace Simonkub\Laravel\Notifications\Sipgate;
 
 use GuzzleHttp\Client;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Notifications\ChannelManager;
+use Illuminate\Support\ServiceProvider;
 
 class SipgateServiceProvider extends ServiceProvider
 {

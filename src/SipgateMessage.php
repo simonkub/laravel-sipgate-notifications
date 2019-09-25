@@ -1,6 +1,6 @@
 <?php
 
-namespace SimonKub\Laravel\Notifications\Sipgate;
+namespace Simonkub\Laravel\Notifications\Sipgate;
 
 use Illuminate\Contracts\Support\Arrayable;
 

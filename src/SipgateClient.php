@@ -1,10 +1,10 @@
 <?php
 
-namespace SimonKub\Laravel\Notifications\Sipgate;
+namespace Simonkub\Laravel\Notifications\Sipgate;
 
-use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\ClientInterface as HttpClient;
-use SimonKub\Laravel\Notifications\Sipgate\Exceptions\CouldNotSendNotification;
+use GuzzleHttp\Exception\GuzzleException;
+use Simonkub\Laravel\Notifications\Sipgate\Exceptions\CouldNotSendNotification;
 
 class SipgateClient
 {
