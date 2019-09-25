@@ -2,8 +2,8 @@
 
 namespace SimonKub\Laravel\Notifications\Sipgate;
 
-use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Notifications\Notification;
 use SimonKub\Laravel\Notifications\Sipgate\Exceptions\CouldNotSendNotification;
 
 class SipgateChannel
