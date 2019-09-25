@@ -3,6 +3,7 @@
 namespace SimonKub\Laravel\Notifications\Sipgate;
 
 use Illuminate\Notifications\Notification;
+use SimonKub\Laravel\Notifications\Sipgate\Exceptions\CouldNotSendNotification;
 
 class SipgateChannel
 {
@@ -19,17 +20,59 @@ class SipgateChannel
     /**
      * Send the given notification.
      *
-     * @param mixed $notifiable
-     * @param \Illuminate\Notifications\Notification $notification
+     * @param  mixed  $notifiable
+     * @param  Notification  $notification
      *
-     * @throws \SimonKub\Laravel\Notifications\Sipgate\Exceptions\CouldNotSendNotification
+     * @throws CouldNotSendNotification
      */
     public function send($notifiable, Notification $notification)
     {
         /** @var SipgateMessage $message */
         $message = $notification->toSipgate($notifiable);
-        $message->setRecipient($notifiable->phone_number)->setSmsId('s9');
+
+        $this->addRecipient($message, $notifiable);
+
+        $this->addSmsId($message);
 
         $this->client->send($message);
+    }
+
+    /**
+     * @param  SipgateMessage  $message
+     * @param $notifiable
+     * @throws CouldNotSendNotification
+     */
+    protected function addRecipient(SipgateMessage $message, $notifiable)
+    {
+        if ($message->getRecipient()) {
+            return;
+        }
+
+        if ($recipient = $notifiable->routeNotificationFor('sipgate', $notifiable)) {
+            $message->recipient($recipient);
+
+            return;
+        }
+
+        throw CouldNotSendNotification::noRecipient();
+    }
+
+    /**
+     * @param  SipgateMessage  $message
+     * @throws CouldNotSendNotification
+     */
+    protected function addSmsId(SipgateMessage $message)
+    {
+        if ($message->getSmsId()) {
+            return;
+        }
+
+        if ($smsId = config('services.sipgate.smsId')) {
+            $message->smsId($smsId);
+
+            return;
+        }
+
+        throw CouldNotSendNotification::noSmsId();
     }
 }

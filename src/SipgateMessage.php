@@ -6,17 +6,26 @@ use Illuminate\Contracts\Support\Arrayable;
 
 class SipgateMessage implements Arrayable
 {
-    protected $smsId;
+    /** @var string */
     protected $message;
+
+    /** @var string */
     protected $recipient;
+
+    /** @var string */
+    protected $smsId;
+
+    /** @var int */
     protected $sendAt;
 
-    public function __construct($message = '', $smsId = '', $recipient = '', $sendAt = null)
+    public function __construct($message = '')
     {
         $this->message = $message;
-        $this->smsId = $smsId;
-        $this->recipient = $recipient;
-        $this->sendAt = $sendAt;
+    }
+
+    public static function create($message = '')
+    {
+        return new static($message);
     }
 
     /**
@@ -32,7 +41,7 @@ class SipgateMessage implements Arrayable
      *
      * @return SipgateMessage
      */
-    public function setSmsId(string $smsId)
+    public function smsId(string $smsId)
     {
         $this->smsId = $smsId;
 
@@ -51,7 +60,7 @@ class SipgateMessage implements Arrayable
      * @param  string  $message
      * @return SipgateMessage
      */
-    public function setMessage(string $message)
+    public function message(string $message)
     {
         $this->message = $message;
 
@@ -70,7 +79,7 @@ class SipgateMessage implements Arrayable
      * @param  string  $recipient
      * @return SipgateMessage
      */
-    public function setRecipient(string $recipient)
+    public function recipient(string $recipient)
     {
         $this->recipient = $recipient;
 
@@ -89,7 +98,7 @@ class SipgateMessage implements Arrayable
      * @param  int  $sendAt
      * @return SipgateMessage
      */
-    public function setSendAt($sendAt)
+    public function sendAt($sendAt)
     {
         $this->sendAt = $sendAt;
 
@@ -99,9 +108,9 @@ class SipgateMessage implements Arrayable
     public function toArray()
     {
         return [
-            "smsId" => $this->smsId,
             "message" => $this->message,
             "recipient" => $this->recipient,
+            "smsId" => $this->smsId,
             "sendAt" => $this->sendAt
         ];
     }
