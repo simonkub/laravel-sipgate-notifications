@@ -10,8 +10,8 @@ class SipgateMessageTest extends TestCase
 {
     const MESSAGE = 'Hello World!';
     const RECIPENT = '1234567890';
-    CONST SEND_AT = 1445385600;
-    CONST SMS_ID = 's0';
+    const SEND_AT = 1445385600;
+    const SMS_ID = 's0';
 
     /** @test */
     public function it_can_be_instantiate()
@@ -90,7 +90,7 @@ class SipgateMessageTest extends TestCase
             'message' => self::MESSAGE,
             'recipient' => self::RECIPENT,
             'sendAt' => self::SEND_AT,
-            'smsId' => self::SMS_ID
+            'smsId' => self::SMS_ID,
         ], $message->toArray());
     }
 }

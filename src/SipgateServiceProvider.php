@@ -3,8 +3,8 @@
 namespace Simonkub\Laravel\Notifications\Sipgate;
 
 use GuzzleHttp\Client;
-use Illuminate\Notifications\ChannelManager;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Notifications\ChannelManager;
 
 class SipgateServiceProvider extends ServiceProvider
 {
