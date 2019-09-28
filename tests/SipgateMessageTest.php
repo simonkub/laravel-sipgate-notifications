@@ -22,6 +22,14 @@ class SipgateMessageTest extends TestCase
     }
 
     /** @test */
+    public function it_is_arrayable()
+    {
+        $message = SipgateMessage::create();
+
+        $this->assertInstanceOf(Arrayable::class, $message);
+    }
+
+    /** @test */
     public function it_stores_a_message_via_create_function()
     {
         $message = SipgateMessage::create(self::MESSAGE);
@@ -67,14 +75,6 @@ class SipgateMessageTest extends TestCase
         $message = SipgateMessage::create()->smsId(self::SMS_ID);
 
         $this->assertSame(self::SMS_ID, $message->getSmsId());
-    }
-
-    /** @test */
-    public function it_is_arrayable()
-    {
-        $message = SipgateMessage::create();
-
-        $this->assertInstanceOf(Arrayable::class, $message);
     }
 
     /** @test */
