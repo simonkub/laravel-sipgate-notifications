@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\GuzzleException;
 class CouldNotSendNotification extends Exception
 {
     const NO_RECIPIENT = 'Could not find recipient for notification';
-    const CONNECTION_FAILED = "Could not connect to sipgate: %s: %s";
+    const CONNECTION_FAILED = 'Could not connect to sipgate: %s: %s';
 
     public static function noRecipient()
     {
