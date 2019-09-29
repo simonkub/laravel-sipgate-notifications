@@ -4,6 +4,11 @@
     "homepage": "https://github.com/simonkub/laravel-sipgate-notification",
     "license": "MIT",
     "type": "library",
+    "keywords": [
+        "laravel",
+        "sipgate",
+        "notifications"
+    ],
     "authors": [
         {
             "name": "Simon Kubiak",
