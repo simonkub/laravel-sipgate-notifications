@@ -2,8 +2,8 @@
 
 namespace Simonkub\Laravel\Notifications\Sipgate\Test;
 
-use PHPUnit\Framework\TestCase;
 use Illuminate\Contracts\Support\Arrayable;
+use PHPUnit\Framework\TestCase;
 use Simonkub\Laravel\Notifications\Sipgate\SipgateMessage;
 
 class SipgateMessageTest extends TestCase

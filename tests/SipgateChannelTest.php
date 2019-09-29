@@ -2,14 +2,14 @@
 
 namespace Simonkub\Laravel\Notifications\Sipgate\Test;
 
-use Mockery;
-use PHPUnit\Framework\TestCase;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
-use Simonkub\Laravel\Notifications\Sipgate\SipgateClient;
-use Simonkub\Laravel\Notifications\Sipgate\SipgateChannel;
-use Simonkub\Laravel\Notifications\Sipgate\SipgateMessage;
+use Mockery;
+use PHPUnit\Framework\TestCase;
 use Simonkub\Laravel\Notifications\Sipgate\Exceptions\CouldNotSendNotification;
+use Simonkub\Laravel\Notifications\Sipgate\SipgateChannel;
+use Simonkub\Laravel\Notifications\Sipgate\SipgateClient;
+use Simonkub\Laravel\Notifications\Sipgate\SipgateMessage;
 
 class SipgateChannelTest extends TestCase
 {
