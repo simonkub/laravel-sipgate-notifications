@@ -1,4 +1,4 @@
-# Laravel Notifications for sipgate [WIP]
+# Laravel Notifications for sipgate
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/simonkub/laravel-sipgate-notification.svg?style=flat-square)](https://packagist.org/packages/simonkub/laravel-sipgate-notification)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -8,15 +8,23 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/simonkub/laravel-sipgate-notification/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/simonkub/laravel-sipgate-notification/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/simonkub/laravel-sipgate-notification.svg?style=flat-square)](https://packagist.org/packages/simonkub/laravel-sipgate-notification)
 
-This package makes it easy to send notifications using [sipgate](https://sipgate.de) with Laravel 5.5+ and 6.0
-
+This package makes it easy to send notifications using [sipgate](https://sipgate.de) with Laravel 5.5+ and 6.0.
 
 ## Contents
 
 - [Installation](#installation)
 	- [Setting up the sipgate service](#setting-up-the-sipgate-service)
+	- [Web SMS Extensions / SMS ID](#web-sms-extensions--sms-id)
+	- [Send SMS with custom sender number](#send-sms-with-custom-sender-number)
 - [Usage](#usage)
+	- [Create a Notification](#create-a-notification)
+	- [Add a recipient](#add-a-recipient)
+	- [Sending On-Demand Notifications](#sending-on-demand-notifications)
 	- [Available Message methods](#available-message-methods)
+- [Common Issues](#common-issues)
+    - [SMS sent successfully but no message received](#sms-sent-successfully-but-no-message-received)
+    - [HTTP Errors](#http-errors)
+- [Resources](#resources)
 - [Changelog](#changelog)
 - [Testing](#testing)
 - [Security](#security)
@@ -111,7 +119,7 @@ public function toSipgate($notifiable)
 }
 ```
 
-Or add a `routeNotificationForSipgate` method to your notifiable class.
+Or add a `routeNotificationForSipgate` method to your notifiable class:
 
 ```php
 class User extends Authenticatable
@@ -160,7 +168,7 @@ public function toSipgate($notifiable)
 
 ## Common Issues
 
-##### SMS sent successfully but no message received
+#### SMS sent successfully but no message received
 
 Possible reasons are:
 
@@ -176,12 +184,9 @@ Possible reasons are:
 | username and/or password are wrong                                                                                                                  |    401    |
 | insufficient account balance                                                                                                                        |    402    |
 | no permission to use specified SMS extension (e.g. SMS feature not booked, user password must be reset in [web app](https://app.sipgate.com/login)) |    403    |
-| wrong REST API endpoint                                                                                                                             |    404    |
-| wrong request method                                                                                                                                |    405    |
-| wrong or missing `Content-Type` header with `application/json`                                                                                      |    415    |
 | internal server error or unhandled bad request (e.g. `smsId` not set)                                                                               |    500    |
 
-### Resources
+## Resources
 
 - [sipgate team FAQ (DE)](https://teamhelp.sipgate.de/hc/de)
 - [sipgate basic FAQ (DE)](https://basicsupport.sipgate.de/hc/de)
