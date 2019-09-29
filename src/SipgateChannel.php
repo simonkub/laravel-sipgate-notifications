@@ -2,7 +2,6 @@
 
 namespace Simonkub\Laravel\Notifications\Sipgate;
 
-use Illuminate\Support\Facades\Config;
 use Illuminate\Notifications\Notification;
 use Simonkub\Laravel\Notifications\Sipgate\Exceptions\CouldNotSendNotification;
 
@@ -13,9 +12,15 @@ class SipgateChannel
      */
     protected $client;
 
-    public function __construct(SipgateClient $client)
+    /**
+     * @var string
+     */
+    protected $smsId;
+
+    public function __construct(SipgateClient $client, string $smsId)
     {
         $this->client = $client;
+        $this->smsId = $smsId;
     }
 
     /**
@@ -60,7 +65,6 @@ class SipgateChannel
 
     /**
      * @param  SipgateMessage  $message
-     * @throws CouldNotSendNotification
      */
     protected function addSmsId(SipgateMessage $message)
     {
@@ -68,12 +72,6 @@ class SipgateChannel
             return;
         }
 
-        if ($smsId = Config::get('services.sipgate.smsId')) {
-            $message->smsId($smsId);
-
-            return;
-        }
-
-        throw CouldNotSendNotification::noSmsId();
+        $message->smsId($this->smsId);
     }
 }

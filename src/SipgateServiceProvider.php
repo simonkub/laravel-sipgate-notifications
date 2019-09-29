@@ -3,8 +3,9 @@
 namespace Simonkub\Laravel\Notifications\Sipgate;
 
 use GuzzleHttp\Client;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Notifications\ChannelManager;
+use Illuminate\Support\ServiceProvider;
 
 class SipgateServiceProvider extends ServiceProvider
 {
@@ -15,7 +16,11 @@ class SipgateServiceProvider extends ServiceProvider
     {
         $this->app->afterResolving(ChannelManager::class, function (ChannelManager $channels) {
             $channels->extend('sipgate', function ($app) {
-                return $app[SipgateChannel::class];
+                /** @var Application $app */
+                return new SipgateChannel(
+                    $app->make(SipgateClient::class),
+                    $app['config']['services.sipgate.smsId']
+                );
             });
         });
 
@@ -34,13 +39,5 @@ class SipgateServiceProvider extends ServiceProvider
                 ])
             );
         });
-    }
-
-    /**
-     * Register the application services.
-     */
-    public function register()
-    {
-        //
     }
 }
