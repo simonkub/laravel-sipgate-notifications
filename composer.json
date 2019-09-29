@@ -3,6 +3,7 @@
     "description": "Laravel notifications driver for sipgate.de",
     "homepage": "https://github.com/simonkub/laravel-sipgate-notification",
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
             "name": "Simon Kubiak",
