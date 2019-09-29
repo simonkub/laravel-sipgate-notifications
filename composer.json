@@ -1,5 +1,5 @@
 {
-    "name": "simonkub/laravel-sipgate-notification",
+    "name": "simonkub/laravel-sipgate-notifications",
     "description": "Laravel notifications driver for sipgate.de",
     "homepage": "https://github.com/simonkub/laravel-sipgate-notification",
     "license": "MIT",
