@@ -2,14 +2,14 @@
 
 namespace Simonkub\Laravel\Notifications\Sipgate\Test;
 
-use Mockery;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
-use PHPUnit_Framework_TestCase as TestCase;
-use Simonkub\Laravel\Notifications\Sipgate\SipgateClient;
-use Simonkub\Laravel\Notifications\Sipgate\SipgateChannel;
-use Simonkub\Laravel\Notifications\Sipgate\SipgateMessage;
+use Mockery;
+use PHPUnit\Framework\TestCase;
 use Simonkub\Laravel\Notifications\Sipgate\Exceptions\CouldNotSendNotification;
+use Simonkub\Laravel\Notifications\Sipgate\SipgateChannel;
+use Simonkub\Laravel\Notifications\Sipgate\SipgateClient;
+use Simonkub\Laravel\Notifications\Sipgate\SipgateMessage;
 
 class SipgateChannelTest extends TestCase
 {
@@ -28,14 +28,14 @@ class SipgateChannelTest extends TestCase
      */
     protected $testNotification;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->sipgateClient = Mockery::mock(SipgateClient::class);
 
         $this->sipgateChannel = new SipgateChannel($this->sipgateClient, 'SMS_ID_SET_IN_CONFIG');
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         Mockery::close();
     }

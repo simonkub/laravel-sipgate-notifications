@@ -6,9 +6,8 @@
          verbose="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false">
+         convertWarningsToExceptions="true" processIsolation="false" stopOnFailure="false"
+    beStrictAboutTestsThatDoNotTestAnything="false">
     <testsuites>
         <testsuite name="Sipgate Test Suite">
             <directory>tests</directory>

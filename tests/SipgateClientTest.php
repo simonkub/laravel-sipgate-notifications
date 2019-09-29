@@ -2,13 +2,13 @@
 
 namespace Simonkub\Laravel\Notifications\Sipgate\Test;
 
-use Mockery;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\TransferException;
-use PHPUnit_Framework_TestCase as TestCase;
+use Mockery;
+use PHPUnit\Framework\TestCase;
+use Simonkub\Laravel\Notifications\Sipgate\Exceptions\CouldNotSendNotification;
 use Simonkub\Laravel\Notifications\Sipgate\SipgateClient;
 use Simonkub\Laravel\Notifications\Sipgate\SipgateMessage;
-use Simonkub\Laravel\Notifications\Sipgate\Exceptions\CouldNotSendNotification;
 
 class SipgateClientTest extends TestCase
 {
@@ -34,7 +34,7 @@ class SipgateClientTest extends TestCase
      */
     protected $message;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->httpClient = Mockery::mock(ClientInterface::class);
 
@@ -47,7 +47,7 @@ class SipgateClientTest extends TestCase
             ->smsId(self::SMS_ID);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         Mockery::close();
     }
