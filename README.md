@@ -53,13 +53,15 @@ return [
     'sipgate' => [
         'username' => env('SIPGATE_USERNAME'),
         'password' => env('SIPGATE_PASSWORD'),
-        'smsId' => env('SIPGATE_SMSID')
+        'smsId' => env('SIPGATE_SMSID'),
+        'enabled' => env('SIPGATE_NOTIFICATOINS_ENABLED', true),
     ]
 ];
 ```
 
 Add your sipgate credentials to your `.env`:
 ```bash
+SIPGATE_NOTIFICATOINS_ENABLED=true
 SIPGATE_USERNAME=mail@example.com
 SIPGATE_PASSWORD=1234567890
 SIPGATE_SMSID=s0

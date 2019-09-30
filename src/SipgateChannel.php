@@ -17,10 +17,16 @@ class SipgateChannel
      */
     protected $smsId;
 
-    public function __construct(SipgateClient $client, string $smsId)
+    /**
+     * @var bool
+     */
+    protected $channelEnabled;
+
+    public function __construct(SipgateClient $client, string $smsId, bool $channelEnabled)
     {
         $this->client = $client;
         $this->smsId = $smsId;
+        $this->channelEnabled = $channelEnabled;
     }
 
     /**
@@ -33,6 +39,10 @@ class SipgateChannel
      */
     public function send($notifiable, Notification $notification)
     {
+        if (!$this->channelEnabled) {
+            return;
+        }
+
         /** @var SipgateMessage $message */
         $message = $notification->toSipgate($notifiable);
 
