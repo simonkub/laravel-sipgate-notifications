@@ -32,7 +32,7 @@ class SipgateChannelTest extends TestCase
     {
         $this->sipgateClient = Mockery::mock(SipgateClient::class);
 
-        $this->sipgateChannel = new SipgateChannel($this->sipgateClient, 'SMS_ID_SET_IN_CONFIG');
+        $this->sipgateChannel = new SipgateChannel($this->sipgateClient, 'SMS_ID_SET_IN_CONFIG', true);
     }
 
     protected function tearDown(): void
@@ -118,6 +118,16 @@ class SipgateChannelTest extends TestCase
                 return $argument->getSmsId() === 'SMS_ID_SET_IN_CONFIG';
             }))
             ->once();
+
+        $this->sipgateChannel->send(new TestNotifiable(), new TestNotification());
+    }
+
+    /** @test */
+    public function it_sends_no_messages_when_channel_is_disabled()
+    {
+        $this->sipgateChannel = new SipgateChannel($this->sipgateClient, 'SMS_ID_SET_IN_CONFIG', false);
+
+        $this->sipgateClient->shouldNotReceive('send');
 
         $this->sipgateChannel->send(new TestNotifiable(), new TestNotification());
     }

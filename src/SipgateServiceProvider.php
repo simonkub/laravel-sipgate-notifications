@@ -25,6 +25,10 @@ class SipgateServiceProvider extends ServiceProvider
             ->needs('$smsId')
             ->give($this->app['config']['services.sipgate.smsId']);
 
+        $this->app->when(SipgateChannel::class)
+            ->needs('$channelEnabled')
+            ->give($this->app['config']['services.sipgate.enabled']);
+
         $this->app->bind(SipgateClient::class, function () {
             return new SipgateClient(
                 new Client([
