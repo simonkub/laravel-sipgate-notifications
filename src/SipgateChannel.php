@@ -39,7 +39,7 @@ class SipgateChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        if (!$this->channelEnabled) {
+        if (! $this->channelEnabled) {
             return;
         }
 
