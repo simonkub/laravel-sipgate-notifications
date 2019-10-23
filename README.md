@@ -1,4 +1,4 @@
-# Laravel Notifications for sipgate
+# Laravel Notifications for sipgate [Deprecated]
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/simonkub/laravel-sipgate-notifications.svg?style=flat-square)](https://packagist.org/packages/simonkub/laravel-sipgate-notifications)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -9,6 +9,8 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/simonkub/laravel-sipgate-notifications.svg?style=flat-square)](https://packagist.org/packages/simonkub/laravel-sipgate-notifications)
 
 This package makes it easy to send notifications using [sipgate](https://sipgate.de) with Laravel 5.5+ and 6.0.
+
+> This package was moved to another organisation. See https://github.com/laravel-notification-channels/sipgate
 
 ## Contents
 
